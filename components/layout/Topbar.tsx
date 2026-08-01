@@ -16,7 +16,7 @@ export default function Topbar() {
           <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-500"></span>
         </Link>
         <div className="flex items-center gap-2 pl-3 pr-2 py-1.5 rounded-lg border border-slate-200">
-          <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white bg-blue-700">AD</div>
+          <div className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white bg-blue-700">ABD</div>
           <span className="text-sm font-medium text-slate-700">Admin</span>
         </div>
       </div>

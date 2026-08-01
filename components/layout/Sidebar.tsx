@@ -22,7 +22,7 @@ export default function Sidebar() {
           <Package size={20} className="text-white" />
         </div>
         <div>
-          <div className="font-bold text-white text-base">DeliverOps</div>
+          <div className="font-bold text-white text-base">ABD</div>
           <div className="text-xs text-slate-500">Gestion Livraisons</div>
         </div>
       </div>
@@ -46,10 +46,10 @@ export default function Sidebar() {
           <Settings size={17} className="text-slate-600" />Paramètres
         </Link>
         <div className="flex items-center gap-3 px-3 py-3 mt-2 rounded-lg" style={{ background: "rgba(255,255,255,0.04)" }}>
-          <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white bg-blue-500">AD</div>
+          <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white bg-blue-500">ABD</div>
           <div className="flex-1 min-w-0">
-            <div className="text-sm font-medium text-white truncate">Admin</div>
-            <div className="text-xs text-slate-500 truncate">admin@deliverops.sn</div>
+            <div className="text-sm font-medium text-white truncate">Ambocar</div>
+            <div className="text-xs text-slate-500 truncate">amadoubocardaff@gmail.com</div>
           </div>
           <button className="p-1 rounded hover:bg-slate-700 transition-colors"><LogOut size={15} className="text-slate-500" /></button>
         </div>

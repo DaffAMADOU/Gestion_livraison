@@ -23,7 +23,7 @@ export default function DashboardPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-slate-900">Tableau de bord</h1>
-          <p className="text-sm text-slate-500 mt-0.5">Vue d\'ensemble de votre activité</p>
+          <p className="text-sm text-slate-500 mt-0.5">Vue d'ensemble de votre activité</p>
         </div>
         <Link href="/commandes" className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-white bg-blue-700 hover:bg-blue-800 transition-colors">
           <Package size={15} />Nouvelle commande
