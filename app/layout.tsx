@@ -5,8 +5,8 @@ import Topbar from "@/components/layout/Topbar";
 import { DataProvider } from "@/lib/store";
 
 export const metadata: Metadata = {
-  title: "DeliverOps — Gestion de Livraison",
-  description: "SaaS de gestion des livraisons",
+  title: "ABD — Gestion de Livraison",
+  description: "Gestion des livraisons",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
