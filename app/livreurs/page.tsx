@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { livreurs as initialLivreurs } from "@/lib/data";
+import { useData } from "@/lib/store";
 import { LivreurStatutBadge } from "@/components/ui/Badges";
 import { Search, Plus, Phone, Mail, Star, Package } from "lucide-react";
 import Modal from "@/components/ui/Modal";
@@ -10,7 +10,7 @@ import { Livreur } from "@/types";
 const emptyForm = { nom: "", telephone: "", email: "", vehicule: "Moto", zone: "" };
 
 export default function LivreursPage() {
-  const [livreurs, setLivreurs] = useState<Livreur[]>(initialLivreurs);
+  const { livreurs, addLivreur } = useData();
   const [search, setSearch] = useState("");
   const [filtre, setFiltre] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
@@ -47,7 +47,7 @@ export default function LivreursPage() {
       livraisons: 0,
       note: 5,
     };
-    setLivreurs([nouveauLivreur, ...livreurs]);
+    addLivreur(nouveauLivreur);
     resetAndClose();
   };
 

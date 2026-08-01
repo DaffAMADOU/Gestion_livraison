@@ -1,10 +1,11 @@
 "use client";
-import { commandes } from "@/lib/data";
+import { useData } from "@/lib/store";
 import { formatMontant, formatDateTime } from "@/lib/utils";
 import { StatutBadge, PaiementBadge } from "@/components/ui/Badges";
 import { History, Package, CheckCircle, XCircle } from "lucide-react";
 
 export default function HistoriquePage() {
+  const { commandes } = useData();
   const done = commandes.filter(c => ["livree", "echouee", "annulee"].includes(c.statut));
   const totalLivrees = done.filter(c => c.statut === "livree").length;
   const totalEchouees = done.filter(c => c.statut === "echouee").length;

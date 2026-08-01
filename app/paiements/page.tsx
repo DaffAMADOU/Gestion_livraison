@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
-import { commandes } from "@/lib/data";
+import { useData } from "@/lib/store";
 import { formatMontant, formatDateTime } from "@/lib/utils";
 import { PaiementBadge, ModeBadge } from "@/components/ui/Badges";
 import { Search, TrendingUp, CreditCard, AlertCircle, RotateCcw } from "lucide-react";
 
 export default function PaiementsPage() {
+  const { commandes } = useData();
   const [search, setSearch] = useState("");
   const [filtre, setFiltre] = useState("");
 

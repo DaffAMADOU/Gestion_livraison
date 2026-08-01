@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { clients as initialClients } from "@/lib/data";
+import { useData } from "@/lib/store";
 import { formatDate } from "@/lib/utils";
 import { Search, Plus, Mail, Phone, MapPin, ShoppingBag } from "lucide-react";
 import Modal from "@/components/ui/Modal";
@@ -10,7 +10,7 @@ import { Client } from "@/types";
 const emptyForm = { nom: "", email: "", telephone: "", adresse: "", ville: "" };
 
 export default function ClientsPage() {
-  const [clients, setClients] = useState<Client[]>(initialClients);
+  const { clients, addClient } = useData();
   const [search, setSearch] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [form, setForm] = useState(emptyForm);
@@ -38,7 +38,7 @@ export default function ClientsPage() {
       totalCommandes: 0,
       dateCreation: new Date().toISOString(),
     };
-    setClients([nouveauClient, ...clients]);
+    addClient(nouveauClient);
     resetAndClose();
   };
 

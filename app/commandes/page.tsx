@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { commandes as initialCommandes, clients, livreurs } from "@/lib/data";
+import { useData } from "@/lib/store";
 import { formatMontant, formatDateTime } from "@/lib/utils";
 import { StatutBadge, PaiementBadge, ModeBadge } from "@/components/ui/Badges";
 import Modal from "@/components/ui/Modal";
@@ -30,7 +30,7 @@ const emptyForm = {
 };
 
 export default function CommandesPage() {
-  const [commandes, setCommandes] = useState<Commande[]>(initialCommandes);
+  const { commandes, clients, livreurs, addCommande } = useData();
   const [search, setSearch] = useState("");
   const [statut, setStatut] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
@@ -76,7 +76,7 @@ export default function CommandesPage() {
       paiementMode: form.paiementMode,
     };
 
-    setCommandes([nouvelleCommande, ...commandes]);
+    addCommande(nouvelleCommande);
     resetAndClose();
   };
 

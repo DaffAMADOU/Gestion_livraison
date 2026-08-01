@@ -1,5 +1,6 @@
 "use client";
-import { commandes, livreurs, clients, revenusHebdo, statutsDistrib, notifications } from "@/lib/data";
+import { revenusHebdo, statutsDistrib } from "@/lib/data";
+import { useData } from "@/lib/store";
 import { formatMontant, formatRelative } from "@/lib/utils";
 import { StatutBadge } from "@/components/ui/Badges";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
@@ -7,6 +8,7 @@ import { Package, TrendingUp, Truck, Users, ArrowUpRight, Clock, CheckCircle, Al
 import Link from "next/link";
 
 export default function DashboardPage() {
+  const { commandes, livreurs, clients, notifications } = useData();
   const totalRevenu = commandes.filter(c => c.paiementStatut === "paye").reduce((s, c) => s + c.montant, 0);
   const stats = [
     { label: "Total commandes", value: commandes.length, sub: "+3 aujourd\'hui", icon: Package, gradient: "linear-gradient(135deg,#1e40af,#3b82f6)" },

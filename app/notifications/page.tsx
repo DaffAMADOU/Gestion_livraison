@@ -1,17 +1,16 @@
 "use client";
-import { useState } from "react";
-import { notifications } from "@/lib/data";
+import { useData } from "@/lib/store";
 import { formatRelative } from "@/lib/utils";
 import { Bell, CheckCircle, Package, TrendingUp, AlertTriangle, Check, Trash2 } from "lucide-react";
 import { Notification } from "@/types";
 
 export default function NotificationsPage() {
-  const [items, setItems] = useState(notifications);
+  const { notifications: items, markNotificationRead, markAllNotificationsRead, deleteNotification } = useData();
   const unread = items.filter(n => !n.lu).length;
 
-  const markAll = () => setItems(items.map(n => ({ ...n, lu: true })));
-  const markOne = (id: string) => setItems(items.map(n => n.id === id ? { ...n, lu: true } : n));
-  const deleteOne = (id: string) => setItems(items.filter(n => n.id !== id));
+  const markAll = () => markAllNotificationsRead();
+  const markOne = (id: string) => markNotificationRead(id);
+  const deleteOne = (id: string) => deleteNotification(id);
 
   const icons: Record<Notification["type"], React.ReactNode> = {
     livraison: <CheckCircle size={18} className="text-emerald-500" />,
